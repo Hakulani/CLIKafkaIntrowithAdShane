@@ -25,23 +25,26 @@ mysql> <pre><code>select * form movies;</code></pre>
 
 
 #Create source connector
-curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-source.json
+<pre><code>curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-source.json</code></pre>
 #Create sink connector
-curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-sink-kafka.json
+<pre><code>curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-sink-kafka.json</code></pre>
 
 
 #Start ksqlDB
-docker exce -it ksqldb http://localhost:8088
+<pre><code>docker exce -it ksqldb http://localhost:8088</code></pre>
 #Set offset 
-ksql> SET 'auto.offset.reset'='earliest';
-ksql> show topics;
-ksql>show connectors;
+ksql> <pre><code>SET 'auto.offset.reset'='earliest';</code></pre>
+ksql> <pre><code>show topics;</code></pre>
+ksql><pre><code>show connectors;</code></pre>
 #CREATE STREAM <stram name >
-ksql> CREATE STREAM ksqlstream WITH 
-(KAFKA_TOPIC='kafka-class-db-001.demo.movies', VALUE_FORMAT = 'AVRO');
-ksql> show streams;
+ksql> <pre><code>CREATE STREAM ksqlstream WITH 
+(KAFKA_TOPIC='kafka-class-db-001.demo.movies', VALUE_FORMAT = 'AVRO');</code></pre>
+  
+ksql> <pre><code>show streams;</code></pre>
+  
 #Create stream
-ksql> SELECT * FROM ksqlstream EMIT CHANGES LIMIT 10;
+  
+ksql><pre><code> SELECT * FROM ksqlstream EMIT CHANGES LIMIT 10;
 #Create stream trasform data
 ksql> CREATE STREAM ksqlstream_processed AS 
 SELECT 
@@ -49,13 +52,14 @@ after->movie_id AS movie_id,
 after->title AS title,
 2023 - CAST(after->release_year AS INT) AS num_year_release
 FROM ksqlstream
-WHERE op in ('c','u','r');
+WHERE op in ('c','u','r');</code></pre>
+  
 #where op:create uodate remove
-ksql> show streams;
-ksql> SELECT * FROM ksqlstream_processed EMIT CHANGES LIMIT 10;
+ksql> <pre><code>show streams;</code></pre>
+ksql> <pre><code>SELECT * FROM ksqlstream_processed EMIT CHANGES LIMIT 10;</code></pre>
 
 ksql>exit;
 
 #Create sink connector
-curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-sink-ksqldb.json
+<pre><code>curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-sink-ksqldb.json</code></pre>
 
