@@ -58,7 +58,7 @@ WHERE op in ('c','u','r');</code></pre>
 ksql> <pre><code>show streams;</code></pre>
 ksql> <pre><code>SELECT * FROM ksqlstream_processed EMIT CHANGES LIMIT 10;</code></pre>
 
-ksql>exit;
+ksql><pre><code>exit;</code></pre>
 
 #Create sink connector
 <pre><code>curl -X GET  -H "Accept: application/json" -H "Content-Type: application/json" http://localhost:8083/connectors/ -d @mysql-sink-ksqldb.json</code></pre>
