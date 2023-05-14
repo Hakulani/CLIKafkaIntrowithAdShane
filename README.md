@@ -16,8 +16,8 @@ CLI Special Live: Kafka Intro with Ad Shane
 #SQL Database in GCP CLI using connection name
 <pre><code>gcloud sql connect kafka-class-db-001 --user=root --quiet</code></pre>
 Enter password:
-mysql> 
-  <pre><code>use demo;</code></pre>
+
+mysql> <pre><code>use demo;</code></pre>
 mysql> <pre><code>select * form movies;</code></pre>
 
 
