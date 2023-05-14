@@ -1,7 +1,6 @@
 #CLI Special Live: Kafka Intro with Ad Shane
 
-#Clone git
-<pre><code>gh repo clone nuttatunc/kafka-r2de-demo</code></pre>
+
 #VM CLI
 <pre><code>ls -lrt</code></pre>
 <pre><code>cd kafka-r2de-demo/</code></pre>
