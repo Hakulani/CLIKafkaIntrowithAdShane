@@ -1,5 +1,4 @@
-# CLIKafkaIntrowithAdShane
-CLI Special Live: Kafka Intro with Ad Shane
+#CLI Special Live: Kafka Intro with Ad Shane
 
 #Clone git
 <pre><code>gh repo clone nuttatunc/kafka-r2de-demo</code></pre>
