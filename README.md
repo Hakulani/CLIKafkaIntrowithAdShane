@@ -4,20 +4,21 @@ CLI Special Live: Kafka Intro with Ad Shane
 #Clone git
 <pre><code>gh repo clone nuttatunc/kafka-r2de-demo</code></pre>
 #VM CLI
-ls -lrt
-cd kafka-r2de-demo/
-ls -lrt
-#Docker compose confluent
-docker compose up -d
-#show images
-docker ps -a
+<pre><code>ls -lrt</code></pre>
+<pre><code>cd kafka-r2de-demo/</code></pre>
+<pre><code>ls -lrt</code></pre>
+#Docker compose confluent</code></pre>
+<pre><code>docker compose up -d</code></pre>
+#show images 
+<pre><code>docker ps -a</code></pre>
 #Web UI kafka external IP:port
 <external IP>:9021
 #SQL Database in GCP CLI using connection name
-$ gcloud sql connect kafka-class-db-001 --user=root --quiet
+<pre><code>gcloud sql connect kafka-class-db-001 --user=root --quiet</code></pre>
 Enter password:
-mysql> use demo;
-mysql> select * form movies;
+mysql> 
+  <pre><code>use demo;</code></pre>
+mysql> <pre><code>select * form movies;</code></pre>
 
 
 
