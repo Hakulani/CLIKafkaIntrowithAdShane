@@ -44,9 +44,10 @@ ksql> <pre><code>show streams;</code></pre>
   
 #Create stream
   
-ksql><pre><code> SELECT * FROM ksqlstream EMIT CHANGES LIMIT 10;
+ksql><pre><code> SELECT * FROM ksqlstream EMIT CHANGES LIMIT 10;</code></pre>
 #Create stream trasform data
-ksql> CREATE STREAM ksqlstream_processed AS 
+ksql> 
+<pre><code>CREATE STREAM ksqlstream_processed AS 
 SELECT 
 after->movie_id AS movie_id,
 after->title AS title,
